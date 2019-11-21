@@ -1,0 +1,10 @@
+---
+# tasks file for raspi-timezone
+#
+
+- file: path=/etc/localtime state=link src=/usr/share/zoneinfo/{{ RASPI_TIMEZONE | default("Etc/UTC") }}
+
+- copy: dest=/etc/timezone content={{ RASPI_TIMEZONE | default("Etc/UTC") }}
+
+...
+
